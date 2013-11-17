@@ -46,6 +46,6 @@ class php {
 	}
 	package { "libapache2-mod-php5":
 		ensure => present,
-		require => [Package[php5], Package[apache2]]
+		require => [Package['php5'], Package['apache2']]
 	}
 }
