@@ -18,6 +18,7 @@ class apache {
 	
 	service { "apache2":
 		require => Package["apache2"],
+		hasrestart => true,
 		subscribe =>[File['/etc/apache2/sites-available/default'],
 			Package['php5', 'php5-mysql', 'php5-dev', 'php5-curl', 'php5-gd', 'php5-imagick', 
 					'php5-mcrypt', 'php5-memcache', 'php5-mhash', 'php5-pspell', 'php5-snmp', 
@@ -29,13 +30,6 @@ class apache {
 		owner => "www-data",
 		group => "www-data",
 		mode => 777,
-		require => Package['apache2']
-	}
-}
-
-class modrewrite{
-	exec { 'enablemodrewrite':
-		command => '/usr/sbin/a2enmod rewrite',
 		require => Package['apache2']
 	}
 }

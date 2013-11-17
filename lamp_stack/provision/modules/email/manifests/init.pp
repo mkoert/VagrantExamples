@@ -1,4 +1,4 @@
-class mail {
+class email {
 	package {"postfix":
 		ensure => present
 	}
