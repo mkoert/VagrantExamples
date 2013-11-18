@@ -69,6 +69,13 @@ __make the php module__
 `touch ./modules/php/init.pp`
 
 
+__make the postgresql module__
+
+`mkdir ./modules/pgsql`
+
+`touch ./modules/pgsql/init.pp`
+
+
 __make the email module__
 
 `mkdir ./modules/email`
@@ -77,14 +84,11 @@ __make the email module__
 
 
 ## The manifest file (./manifests/default.pp):
-
-	import "apache"
-	include apache
-	import "modrewrite"
-	include modrewrite
-	import "php"
-	include php
-	import "mysql"
-	include mysql
-	import "mail"
-	include mail
+	node default{
+		include apache
+		include modrewrite
+		include php
+		include mysql
+		include pgsql
+		include email
+	}
