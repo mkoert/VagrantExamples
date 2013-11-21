@@ -59,6 +59,7 @@ Currently it looks like:
 ### Pause your box
 
 (remember to exit your ssh session)
+
 	vagrant suspend
 	
 ### Resume your box
