@@ -13,6 +13,36 @@ Download Here: [http://downloads.vagrantup.com/] (http://downloads.vagrantup.com
 
 	git clone https://github.com/djheru/VagrantExamples.git ./project_name
 	
+### Modify the Apache vhost config if needed
+
+	nano ./project_name/provision/modules/apache/files/default
+
+Currently it looks like:
+```
+<VirtualHost *:80>
+	
+	ServerName vagrant
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/site/public
+    SetEnv APPLICATION_ENV "development"
+	
+    <Directory /var/www/site/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+	
+	ErrorLog /var/log/apache2/error.log
+	
+	#Possible values include: debug, info, notice, warn, error, crit, alert, emerg
+	LogLevel warn
+	
+	CustomLog /var/log/apache2/access.log combined
+	
+</VirtualHost>
+```
+	
 ### Start the box (building if needed)
 
 	cd ./project_name && vagrant up
