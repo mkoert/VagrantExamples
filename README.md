@@ -43,3 +43,5 @@ Download Here: [http://downloads.vagrantup.com/] (http://downloads.vagrantup.com
 
 	vagrant destroy
 	
+## Vagrant Docs
+View Here: [http://docs.vagrantup.com/v2/getting-started/index.html] (http://docs.vagrantup.com/v2/getting-started/index.html)
