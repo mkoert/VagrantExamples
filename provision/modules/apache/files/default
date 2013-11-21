@@ -1,6 +1,7 @@
 <VirtualHost *:80>
-
-	ServerAdmin webmaster@localhost
+	
+	ServerName vagrant
+    ServerAdmin webmaster@localhost
     DocumentRoot /var/www/site/public
     SetEnv APPLICATION_ENV "development"
 	
