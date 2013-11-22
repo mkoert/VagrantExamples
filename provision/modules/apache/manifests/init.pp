@@ -15,6 +15,11 @@ class apache {
 		group => 'root',
 		require => Package['apache2']	
 	}
+
+	exec { "/usr/sbin/a2enmod vhost_alias":
+	    notify => Exec["force-reload-apache2"],
+	    require => Package['apache2']
+	}
 	
 	service { "apache2":
 		require => Package["apache2"],
@@ -25,11 +30,17 @@ class apache {
 					'php5-xmlrpc', 'php5-xsl', 'php-pear', 'libapache2-mod-php5']]		
 	}
 	
-	file{ "/var/www/uploads":
+	file { "/var/www/uploads":
 		ensure => "directory",
 		owner => "www-data",
 		group => "www-data",
 		mode => 777,
 		require => Package['apache2']
 	}
+
+	exec { "force-reload-apache2":
+        command => "/etc/init.d/apache2 force-reload",
+        refreshonly => true,
+    }
+
 }
