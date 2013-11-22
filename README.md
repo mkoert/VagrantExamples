@@ -5,6 +5,17 @@ This is a vagrant shortcut to set up a Ubuntu Raring x64 box with LAMP and Postg
 
 Download Here: [https://www.virtualbox.org/wiki/Downloads] (https://www.virtualbox.org/wiki/Downloads)
 
+### Configure VirtualBox host-only adapter subnet
+
+- Open the VirtualBox application and go to File->Preferences
+- In preferences, click on Network
+- Click the tab for Host-only Networks
+- Add a new network if one doesn't already exist
+- Click the screwdriver icon to edit the adapter settings
+- Set the Host-only adapter IP address to 192.168.56.1
+- Click the DHCP Server tab an deselect the "Enable Server" checkbox
+- Save changes and exit.
+
 ### Install Vagrant
 
 Download Here: [http://downloads.vagrantup.com/] (http://downloads.vagrantup.com/)
