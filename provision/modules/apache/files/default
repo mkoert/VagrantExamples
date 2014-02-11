@@ -1,21 +1,22 @@
 <VirtualHost *:80>
-    ServerAdmin pdamra@ussignalcom.com
-    VirtualDocumentRoot /var/www/sites/%1/public
-    ServerAlias localhost local *.local
-    UseCanonicalName Off
-
-    <Directory />
-        Options Indexes FollowSymLinks MultiViews
+	
+	ServerName vagrant
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/site/public
+    SetEnv APPLICATION_ENV "development"
+	
+    <Directory /var/www/site/public>
+        DirectoryIndex index.php
         AllowOverride All
         Order allow,deny
-        allow from all
+        Allow from all
     </Directory>
-
-    ErrorLog /var/log/apache2/error.log
-
-    	#Possible values include: debug, info, notice, warn, error, crit, alert, emerg
-    	LogLevel warn
-
-    	CustomLog /var/log/apache2/access.log combined
-
+	
+	ErrorLog /var/log/apache2/error.log
+	
+	#Possible values include: debug, info, notice, warn, error, crit, alert, emerg
+	LogLevel warn
+	
+	CustomLog /var/log/apache2/access.log combined
+	
 </VirtualHost>

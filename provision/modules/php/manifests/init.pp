@@ -50,9 +50,6 @@ class php {
 	package { "php-pear":
 		ensure => present
 	}
-	package { "php5-xdebug":
-	    ensure => present
-	}
 	package { "libapache2-mod-php5":
 		ensure => present,
 		require => [Package['php5'], Package['apache2']]
