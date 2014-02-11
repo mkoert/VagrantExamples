@@ -32,4 +32,9 @@ class apache {
 		mode => 777,
 		require => Package['apache2']
 	}
+	
+	exec { "force-reload-apache2":
+		command => "/etc/init.d/apache2 force-reload",
+		refreshonly => true,
+	}
 }
